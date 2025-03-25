@@ -53,7 +53,10 @@ function Post() {
             <div className="main_content">
                 <h1>내가 작성한 글</h1>
                 {posts.length === 0 ? (
+                    <div>
                     <p className="no-posts">작성한 글이 없습니다.</p>
+                    <div style={{ padding:'5px',borderRadius:'5px', textAlign:'center', width:'200px', border:'1px solid gray', cursor:'pointer', margin:'10px 10px'}} onClick={()=>{navigate("/writePost")}}>판매글 작성 하러 가기</div>
+                    </div>
                 ) : (
                     <div className="posts-grid" style={{width:'1000px'}}>
                         {posts.map((post) => (
