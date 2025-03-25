@@ -75,12 +75,7 @@ public class AuthController {
         usedCodes.add(code); // code 사용 기록
 
         try {
-            String tokenRequestUrl = "https://oauth2.googleapis.com/token?"
-                    + "client_id=290972713499-agpe9v71ip774sidcveg0tbuc19b2t2e.apps.googleusercontent.com"
-                    + "&client_secret=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"
-                    + "&redirect_uri=http://localhost:3000/auth/google/callback"
-                    + "&grant_type=authorization_code"
-                    + "&code=" + code;
+            String tokenRequestUrl = null;
 
             System.out.println("Google token request URL: " + tokenRequestUrl);
             RestTemplate restTemplate = new RestTemplate();
