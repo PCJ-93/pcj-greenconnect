@@ -20,7 +20,7 @@
 
 .main-container h1 {
     font-size: 60px;
-    color: #0c8b00;
+    color: #0c8b00c2;
     -webkit-text-stroke: 0.5px gray;
     margin-bottom: 20px;
 }
@@ -28,7 +28,7 @@
 .main-container p {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #0c8b00;
+    color: #0c8b00c0;
     -webkit-text-stroke: 0.5px gray;
     margin-bottom: 10px;
 }
