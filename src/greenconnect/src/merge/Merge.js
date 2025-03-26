@@ -38,17 +38,14 @@ import KakaoAuthHandler from '../Page/Signup/KakaoAuthHandler.js';
 import NaverAuthHandler from '../Page/Signup/NaverAuthHandler.js';
 
 import Header from '../header/Header.js';
+import Footer from '../footer/Footer.js';
 function Merge() {
 
 
     return (
 
         <div className="merge-container">
-            {useLocation().pathname !== "/gpayCharge" && (
-                <div style={{ marginBottom: "50px" }}>
-                    <Header />
-                </div>
-            )}
+            
             <Routes>
                 <Route path="/Mypage" element={<MyPage />} />
                 <Route path="/Cart" element={<Cart />} />
@@ -96,6 +93,8 @@ function Merge() {
                 <Route path="/auth/naver/callback" element={<NaverAuthHandler />} />
 
             </Routes>
+
+            
         </div>
 
     );
