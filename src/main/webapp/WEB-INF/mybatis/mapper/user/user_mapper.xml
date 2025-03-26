@@ -4,7 +4,7 @@
 <mapper namespace="user_mapper">
 	<!-- 사용자 목록 조회 (관리자용) -->
 	<select id="getUserList" resultType="User">
-		SELECT user_id AS userId, username AS userName, role, status, created_at AS
+		SELECT user_id AS userId, username, role, status, created_at AS
 		regDate
 		FROM USERS
 	</select>
@@ -26,7 +26,7 @@
 	<!-- 사용자 활동 로그 조회 -->
 	<select id="getUserActivityLog" parameterType="String"
 		resultType="map">
-		SELECT user_id AS userId, username AS userName, role, status, created_at AS
+		SELECT user_id AS userId, username, role, status, created_at AS
 		regDate
 		FROM users
 		WHERE user_id = #{userId}
@@ -42,7 +42,7 @@
 	<!-- 사용자 정보 업데이트 -->
 	<update id="updateUserInfo" parameterType="User">
 		UPDATE users
-		SET username = #{userName},
+		SET username = #{username},
 		email = #{email},
 		tel = #{tel},
 		<if test="password != null">
@@ -53,8 +53,8 @@
 
 	<!-- 사용자 상세 조회 -->
 	<select id="getUserDetail" resultType="User">
-		SELECT user_id AS userId,
-		username AS userName,
+		SELECT user_id,
+		username,
 		email,
 		tel,
 		nickname,
@@ -67,7 +67,7 @@
 	<insert id="insertUser" parameterType="User">
 		INSERT INTO users (user_id, password, username, nickname, email, tel,
 		user_type)
-		VALUES (#{userId}, #{password}, #{userName}, #{nickName}, #{email}, #{tel},
+		VALUES (#{userId}, #{password}, #{username}, #{nickname}, #{email}, #{tel},
 		#{userType})
 	</insert>
 
@@ -80,7 +80,7 @@
 	<update id="updateUser" parameterType="User">
 		UPDATE users
 		SET username=
-		#{userName}, nickname=#{nickName},password=#{password},
+		#{username}, nickname=#{nickname},password=#{password},
 		email= #{email}, tel=
 		#{tel}, jumin=#{jumin}
 		, user_type=#{userType}
@@ -94,7 +94,7 @@
 
 	<select id="getUserByNickname" resultType="User">
 		SELECT * FROM users
-		WHERE nickname = #{nickName}
+		WHERE nickname = #{nickname}
 	</select>
 
 	<select id="getUserByJumin" resultType="User">
@@ -126,7 +126,7 @@
 
 	<select id="getNotifyUserList" resultType="User">
 		SELECT user_id AS
-		userId, username AS userName, nickname AS nickName,
+		userId, username, nickname,
 		email, tel,
 		user_type AS userType, report
 		FROM users
