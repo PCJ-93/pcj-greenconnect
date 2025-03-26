@@ -6,6 +6,11 @@ function Header() {
     const navigate = useNavigate();
     const userId = localStorage.getItem("userId");
 
+    const handleLogout = () => {
+        localStorage.removeItem("userId");
+        navigate("/");
+    };
+
     return (
         <div className="headerMainContainer">
             {/* 왼쪽: 로고 (클릭 시 홈으로 이동) */}
@@ -25,9 +30,14 @@ function Header() {
                         </button>
                     </>
                 ) : (
-                    <button className="header-button" onClick={() => navigate("/mypage")}>
-                        My Page
-                    </button>
+                    <>
+                        <button className="header-button" onClick={() => navigate("/mypage")}>
+                            My Page
+                        </button>
+                        <button className="header-button" onClick={handleLogout}>
+                            Logout
+                        </button>
+                    </>
                 )}
             </div>
         </div>

@@ -8,21 +8,21 @@ function App() {
 
   return (
     <>
-    {useLocation().pathname !== "/gpayCharge" && (
-                <div style={{ marginBottom: "50px" }}>
-                    <Header />
-                </div>
-            )}
-    <Merge />;
-    {
-      useLocation().pathname !== "/gpayCharge" && (
-        <div>
-          <Footer />
+      {useLocation().pathname !== "/gpayCharge" && (
+        <div style={{ marginBottom: "50px" }}>
+          <Header />
         </div>
-      )
-    }
+      )}
+      <Merge />;
+      {
+        useLocation().pathname !== "/gpayCharge" && (
+          <div>
+            <Footer />
+          </div>
+        )
+      }
     </>
   )
-  
+
 }
 export default App;
