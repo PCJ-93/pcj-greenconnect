@@ -13,7 +13,7 @@ function App() {
           <Header />
         </div>
       )}
-      <Merge />;
+      <Merge />
       {
         useLocation().pathname !== "/gpayCharge" && (
           <div>
