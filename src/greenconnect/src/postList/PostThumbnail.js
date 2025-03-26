@@ -40,7 +40,7 @@ function PostThumbnail({ post }) {
                         {
                             post.urlFilePath ?
                                 <img src={post.urlFilePath} alt='상품 이미지' /> :
-                                <img src="/images/userImage.jpg" alt='썸네일 없음 기본이미지' />
+                                <img src="/images/gcLogo.png" alt='썸네일 없음 기본이미지' style={{objectFit:'contain', padding:'50px'}} />
                         }
                     </div>
                     <div className='thumbnailTextBox'>

@@ -40,8 +40,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background-color: rgb(115, 226, 115, 0.5);
+    background-color: rgba(115, 226, 115, 0.226);
 }
 
 .thumbnailImgBox img {
