@@ -24,6 +24,12 @@ function MainPage() {
 
     return (
         <div className="main-container">
+
+            <video autoPlay loop muted className="background-video">
+                <source src="/videos/217958_small.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
             <h1>Green Connect</h1>
             <p>Welcome to Green Connect!</p>
 
