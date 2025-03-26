@@ -4,16 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import com.app.dto.user.User;
-import com.app.dto.users.Users;
 
 public interface UserService {
-	List<Users> getUserList();        
-    void updateUserRole(Users user);    
+	List<User> getUserList();        
+    void updateUserRole(User user);    
     void suspendUser(String userId, String status);  
     List<Map<String, Object>> getUserActivityLog(String userId);
-    Users getUserInfo(String userId);  
-    Users getUserDetail(String userId); 
+    User getUserInfo(User userId);  
+    User getUserDetail(String userId); 
     void deleteUser(String userId);
-    void updateUserInfo(Users user);
-    
+    void updateUserInfo(User user);
 }

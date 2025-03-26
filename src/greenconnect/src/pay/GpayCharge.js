@@ -193,8 +193,8 @@ function GpayCharge() {
             alert('결제 요청에 실패했습니다. 다시 시도해주세요.');
         }
 
-
     }
+
 
 
     if (loading) return <div style={{width:'100%', marginTop:'30%', textAlign:'center'}}>g-pay충전페이지 : 잘못 된 접근입니다.</div>;

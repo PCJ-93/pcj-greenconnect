@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import com.app.dto.users.Users;
+import com.app.dto.user.User;
 import com.app.service.user.UserService;
 
 import org.apache.logging.log4j.LogManager;
@@ -23,7 +23,7 @@ public class UserController {
     private static final Logger logger = LogManager.getLogger(UserController.class);
 
     @Autowired
-    private UserService userService;
+    UserService userService;
 
     // 임시로 JWT 파싱 대신 헤더에서 토큰을 단순 추출 (Spring Security로 대체 권장)
     private String getUserIdFromToken(HttpServletRequest request) {
@@ -36,23 +36,23 @@ public class UserController {
         throw new SecurityException("Authentication information is missing");
     }
 
-    @GetMapping("/info")
-    public ResponseEntity<Users> getUserInfo(HttpServletRequest request) {
+    @PostMapping("/info")
+    public ResponseEntity<?> getUserInfo(@RequestBody User userId) {
+    	System.out.println("zzzz"+userId);
         try {
-            String userId = getUserIdFromToken(request);
-            Users user = userService.getUserInfo(userId);
+            User user = userService.getUserInfo(userId);
+            System.out.println("zzzzzsdsd"+user.toString());
             return ResponseEntity.ok(user);
         } catch (Exception e) {
-            logger.error("Error fetching user info: " + e.getMessage());
             return ResponseEntity.status(401).build();
         }
     }
 
     @GetMapping("/detail")
-    public ResponseEntity<Users> getUserDetail(HttpServletRequest request) {
+    public ResponseEntity<User> getUserDetail(HttpServletRequest request) {
         try {
             String userId = getUserIdFromToken(request);
-            Users user = userService.getUserDetail(userId);
+            User user = userService.getUserDetail(userId);
             return ResponseEntity.ok(user);
         } catch (Exception e) {
             logger.error("Error fetching user detail: " + e.getMessage());
@@ -61,7 +61,7 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public ResponseEntity<String> updateUserInfo(HttpServletRequest request, @Validated @RequestBody Users user) {
+    public ResponseEntity<String> updateUserInfo(HttpServletRequest request, @Validated @RequestBody User user) {
         try {
             String userId = getUserIdFromToken(request);
             user.setUserId(userId);
@@ -74,9 +74,9 @@ public class UserController {
     }
 
     @GetMapping("/admin/users")
-    public ResponseEntity<List<Users>> getUserList() {
+    public ResponseEntity<List<User>> getUserList() {
         try {
-            List<Users> users = userService.getUserList();
+            List<User> users = userService.getUserList();
             return ResponseEntity.ok(users);
         } catch (Exception e) {
             logger.error("Error fetching user list: " + e.getMessage());
@@ -85,7 +85,7 @@ public class UserController {
     }
 
     @PostMapping("/admin/users/role")
-    public ResponseEntity<Void> updateUserRole(@RequestBody Users user) {
+    public ResponseEntity<Void> updateUserRole(@RequestBody User user) {
         try {
             userService.updateUserRole(user);
             return ResponseEntity.ok().build();

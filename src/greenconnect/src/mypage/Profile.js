@@ -76,7 +76,7 @@ function Profile() {
     };
 
     return (
-        <div className="mypageSide">
+        <div className="mypageSide" style={{marginTop:'80px'}}>
             <Sidebar />
             <div className="main_content">
                 <div className="profile-card">

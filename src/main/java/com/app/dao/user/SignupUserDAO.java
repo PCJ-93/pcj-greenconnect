@@ -4,17 +4,16 @@ import java.util.List;
 import java.util.Map;
 
 import com.app.dto.user.User;
-import com.app.dto.users.Users;
 
 
 public interface SignupUserDAO {
-	Users getUserInfo(String userId);
-    Users getUserDetail(String userId);
-    List<Users> getUserList();
+	User getUserInfo(User userId);
+    User getUserDetail(String userId);
+    List<User> getUserList();
     List<Map<String, Object>> getUserActivityLog(String userId);
-    void updateUserRole(Users user);
-    void suspendUser(Users user);
+    void updateUserRole(User user);
+    void suspendUser(User user);
     void deleteUser(String userId);
-    void updateUserInfo(Users user);
+    void updateUserInfo(User user);
     
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import MyPage from "../mypage/MyPage";
 import Cart from "../mypage/Cart";
 import Address from "../mypage/Address";
@@ -42,11 +42,13 @@ function Merge() {
 
 
     return (
-        
+
         <div className="merge-container">
-            <div style={{marginBottom:'50px'}}>
-            <Header/>
-            </div>
+            {useLocation().pathname !== "/gpayCharge" && (
+                <div style={{ marginBottom: "50px" }}>
+                    <Header />
+                </div>
+            )}
             <Routes>
                 <Route path="/Mypage" element={<MyPage />} />
                 <Route path="/Cart" element={<Cart />} />
@@ -54,14 +56,14 @@ function Merge() {
                 <Route path="/Post" element={<Post />} />
                 <Route path="/likes" element={<Likes />} />
                 <Route path="/Profile" element={<Profile />} />
-                <Route path="/userinfo" element={<UserInfo />}/>
+                <Route path="/userinfo" element={<UserInfo />} />
                 <Route path="/Admin" element={<Admin />} />
                 <Route path="/Customer" element={<Customer />} />
-                <Route path="/Trade" element={<Trade/>} />
-                <Route path="/System" element={<System/>} />
-                <Route path="/Quality" element={<Quality/>}/>
-                <Route path="/CuSupport" element={<CuSupport/>}/>
-                <Route path='/Charge' element={<Charge/>}/>
+                <Route path="/Trade" element={<Trade />} />
+                <Route path="/System" element={<System />} />
+                <Route path="/Quality" element={<Quality />} />
+                <Route path="/CuSupport" element={<CuSupport />} />
+                <Route path='/Charge' element={<Charge />} />
 
 
                 <Route path="/" element={<MainPage />} />
@@ -81,11 +83,11 @@ function Merge() {
                 <Route path="/commonPay" element={<CommonPay />} />
                 <Route path="/gpayCharge" element={<GpayCharge />} />
 
-                <Route path="/signup" element={<Signup/>} />
-                <Route path="/login" element={<Login/>} />
-                <Route path="/findId" element={<FindId/>} />
-                <Route path="/findPassword" element={<FindPassword/>} />
-                <Route path="/resetPassword" element={<ResetPassword/>} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/findId" element={<FindId />} />
+                <Route path="/findPassword" element={<FindPassword />} />
+                <Route path="/resetPassword" element={<ResetPassword />} />
                 <Route path="/find-id" element={<FindId />} />
                 <Route path="/find-password" element={<FindPassword />} />
                 <Route path="/reset-password" element={<ResetPassword />} />

@@ -99,14 +99,14 @@ public class SignupController {
 
 		System.out.println(accessToken);
 		System.out.println(refreshToken);
-		System.out.println(user.getNickName());
+		System.out.println(user.getNickname());
 		System.out.println(user.getUserId());
 
 		try {
 			// JSON 형태로 변환
 			ObjectMapper objectMapper = new ObjectMapper();
 			Map<String, String> response = Map.of("accessToken", accessToken, "refreshToken", refreshToken, "nickname",
-					user.getNickName(),"userId", user.getUserId(),"email",user.getEmail());
+					user.getNickname(),"userId", user.getUserId(),"email",user.getEmail());
 			
 			return objectMapper.writeValueAsString(response); // JSON 문자열 반환
 		} catch (Exception e) {
@@ -188,7 +188,7 @@ public class SignupController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("이메일과 일치하는 아이디가 없습니다.");
 		}
 		
-		if (!user.getUserName().equals(username)) {
+		if (!user.getUsername().equals(username)) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("입력한 이름과 이메일이 일치하지 않습니다.");
 		}
 		
@@ -222,7 +222,7 @@ public class SignupController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("이메일과 일치하는 아이디가 없습니다.");
 		}
 		
-		if (!user.getUserName().equals(username)) {
+		if (!user.getUsername().equals(username)) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("입력한 이름과 이메일이 일치하지 않습니다.");
 		}
 		

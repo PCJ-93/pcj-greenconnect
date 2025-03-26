@@ -101,9 +101,9 @@ public class AuthController {
                 user.setUserId(generateUniqueUserId()); // 고유 ID 생성
                 user.setPassword(generateSecurePassword());
                 String username = checkAndAdjustUsername("google_" + email.split("@")[0]);
-                user.setUserName(checkAndAdjustUsername(username)); // 중복 체크
+                user.setUsername(checkAndAdjustUsername(username)); // 중복 체크
                 user.setEmail(email);
-                user.setNickName(name);
+                user.setNickname(name);
                 user.setTel(generateUniqueTel()); // tel만 랜덤
                 user.setUserType("GOOGLE");
                 System.out.println("Inserting new Google user: " + user.toString());
@@ -113,9 +113,9 @@ public class AuthController {
 
             response.put("success", true);
             response.put("userId", user.getUserId());
-            response.put("nickname", user.getNickName());
+            response.put("nickname", user.getNickname());
             response.put("email", user.getEmail());
-            response.put("message", "Google 로그인 성공: " + user.getNickName());
+            response.put("message", "Google 로그인 성공: " + user.getNickname());
         } catch (HttpClientErrorException e) {
             System.out.println("Google HTTP Error: " + e.getStatusCode() + " - " + e.getResponseBodyAsString());
             response.put("success", false);
@@ -181,10 +181,10 @@ public class AuthController {
                 user.setUserId(generateUniqueUserId()); // 고유 ID 생성
                 user.setPassword(generateSecurePassword());
                 String username = checkAndAdjustUsername(nickname.replaceAll("\\s+", "_")); // 닉네임 기반, 중복 체크
-                user.setUserName(username);
+                user.setUsername(username);
                 user.setEmail(email != null ? email : generateUniqueEmail()); // 이메일 없으면 랜덤 생성
-                user.setNickName(nickname);
-                user.setNickName(nickname);
+                user.setNickname(nickname);
+                user.setNickname(nickname);
                 user.setTel(generateUniqueTel()); // 항상 랜덤 tel
                 user.setUserType("KAKAO");
                 System.out.println("Inserting new Kakao user: " + user.toString());
@@ -194,9 +194,9 @@ public class AuthController {
 
             response.put("success", true);
             response.put("userId", user.getUserId());
-            response.put("nickname", user.getNickName());
+            response.put("nickname", user.getNickname());
             response.put("email", user.getEmail());
-            response.put("message", "카카오 로그인 성공: " + user.getNickName());
+            response.put("message", "카카오 로그인 성공: " + user.getNickname());
         } catch (HttpClientErrorException e) {
             System.out.println("Kakao HTTP Error: " + e.getStatusCode() + " - " + e.getResponseBodyAsString());
             response.put("success", false);
@@ -261,9 +261,9 @@ public class AuthController {
                 user.setUserId(generateUniqueUserId()); // 고유 ID 생성
                 user.setPassword(generateSecurePassword());
                 String username = "naver_" + email.split("@")[0];
-                user.setUserName(checkAndAdjustUsername(username)); // 중복 체크
+                user.setUsername(checkAndAdjustUsername(username)); // 중복 체크
                 user.setEmail(email);
-                user.setNickName(nickname);
+                user.setNickname(nickname);
                 user.setTel(generateUniqueTel()); // tel만 랜덤
                 user.setUserType("NAVER");
                 System.out.println("Inserting new Naver user: " + user.toString());
@@ -273,9 +273,9 @@ public class AuthController {
 
             response.put("success", true);
             response.put("userId", user.getUserId());
-            response.put("nickname", user.getNickName());
+            response.put("nickname", user.getNickname());
             response.put("email", user.getEmail());
-            response.put("message", "네이버 로그인 성공: " + user.getNickName());
+            response.put("message", "네이버 로그인 성공: " + user.getNickname());
         } catch (HttpClientErrorException e) {
             System.out.println("Naver HTTP Error: " + e.getStatusCode() + " - " + e.getResponseBodyAsString());
             response.put("success", false);
