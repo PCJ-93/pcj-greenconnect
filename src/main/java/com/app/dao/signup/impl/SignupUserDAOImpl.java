@@ -21,7 +21,7 @@ public class SignupUserDAOImpl implements SignupUserDAO{
 	@Override
 	public int insertUser(User user) {
 		
-		int result = sqlSessionTemplate.insert("User_mapper.insertUser", user);
+		int result = sqlSessionTemplate.insert("user_mapper.insertUser", user);
 		
 		return result;
 	}
@@ -29,7 +29,7 @@ public class SignupUserDAOImpl implements SignupUserDAO{
 	@Override
 	public User getUserById(String userId) {
 		
-		User user = sqlSessionTemplate.selectOne("User_mapper.getUserById", userId); 
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserById", userId); 
 		
 		return user;
 	}
@@ -37,7 +37,7 @@ public class SignupUserDAOImpl implements SignupUserDAO{
 	@Override
 	public int updateUser(User user) {
 		
-		int result = sqlSessionTemplate.update("User_mapper.updateUser",user);
+		int result = sqlSessionTemplate.update("user_mapper.updateUser",user);
 
 		return result;
 	}
@@ -45,56 +45,56 @@ public class SignupUserDAOImpl implements SignupUserDAO{
 	@Override
 	public int deleteUser(String userId) {
 	
-		int result = sqlSessionTemplate.delete("User_mapper.deleteUser",userId);
+		int result = sqlSessionTemplate.delete("user_mapper.deleteUser",userId);
 		return result;
 	}
 
 	@Override
 	public List<User> getAllUsers() {
 	
-	List<User> userList = sqlSessionTemplate.selectList("User_mapper.getUserList");
+	List<User> userList = sqlSessionTemplate.selectList("user_mapper.getUserList");
 			return userList;
 	}
 
 	@Override
 	public User getUserByNickName(String nickName) {
-		User user = sqlSessionTemplate.selectOne("User_mapper.getUserByNickname", nickName);
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserByNickname", nickName);
 		return user;
 	}
 
 	@Override
 	public User getUserByJumin(String jumin) {
-		User user = sqlSessionTemplate.selectOne("User_mapper.getUserByJumin", jumin);
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserByJumin", jumin);
 		return user;
 	}
 
 	@Override
 	public User getUserByTel(String tel) {
-		User user = sqlSessionTemplate.selectOne("User_mapper.getUserByTel", tel);
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserByTel", tel);
 		return user;
 	}
 
 	@Override
 	public User getUserByEmail(String email) {
-		User user = sqlSessionTemplate.selectOne("User_mapper.getUserByEmail", email);
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserByEmail", email);
 		return user;
 	}
 
 	@Override
 	public User getUserByPassword(String password) {
-		User user = sqlSessionTemplate.selectOne("User_mapper.getUserBypassword", password);
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserBypassword", password);
 		return user;
 	}
 
 	@Override
 	public List<User> NotifyUserList() {
-		List<User> userList = sqlSessionTemplate.selectList("User_mapper.getNotifyUserList");
+		List<User> userList = sqlSessionTemplate.selectList("user_mapper.getNotifyUserList");
 		return userList;
 	}
 
 	@Override
 	public void resetReport(List<String> userIds) {
-	    sqlSessionTemplate.update("User_mapper.resetReport", userIds);
+	    sqlSessionTemplate.update("user_mapper.resetReport", userIds);
 	}
 
 	@Override
@@ -103,7 +103,7 @@ public class SignupUserDAOImpl implements SignupUserDAO{
 	    params.put("userId", userId);
 	    params.put("password", newPassword);
 
-	    sqlSessionTemplate.update("User_mapper.passwordUpdate", params);
+	    sqlSessionTemplate.update("user_mapper.passwordUpdate", params);
 		
 	}
 
@@ -112,12 +112,12 @@ public class SignupUserDAOImpl implements SignupUserDAO{
 		 Map<String, Object> params = new HashMap<>();
 	     params.put("type", type);
 	     params.put("value", value);
-	     return sqlSessionTemplate.selectOne("User_mapper.isDuplicate", params);
+	     return sqlSessionTemplate.selectOne("user_mapper.isDuplicate", params);
 	}
 	
 	// username으로 사용자 조회 (새 메서드)
     public User getUserByUsername(String username) {
-        return sqlSessionTemplate.selectOne("User_mapper.getUserByUsername", username);
+        return sqlSessionTemplate.selectOne("user_mapper.getUserByUsername", username);
     }
 	
 }
