@@ -293,7 +293,7 @@ function PostDetail() {  // PostDetailIntro 위에 있는 화면
             if (response.data === "성공") {
                 alert("결제페이지로 이동!");
                 console.log('성공:', response.data);
-                navigate("/payPage/" + postDetail.postId); // 결제페이지 이동 으로 수정해야함@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                navigate("/payPage/" + postDetail.postId); // 결제페이지 이동
             } else if (response.data === "실패") {
                 alert("구매 요청이 실패했습니다.");
             } else {
