@@ -291,7 +291,7 @@ function PayPage() {
     if (loading) return <div style={{ width: '100%', marginTop: '30%', textAlign: 'center' }}>결제 페이지 : 잘못 된 접근입니다.</div>;
 
     return (
-        <div className="payPageMainContainer">
+        <div className="payPageMainContainer" style={{marginTop:'80px'}}>
             <h1>결제페이지</h1>
             <div className='payPageContainer'>
 

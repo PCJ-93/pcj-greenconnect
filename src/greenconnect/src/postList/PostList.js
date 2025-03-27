@@ -45,8 +45,8 @@ function PostList() {
             <h1 style={{fontSize:'40px'}}>판매글 리스트 페이지</h1>
 
             <div className='PostListContainerTitle'>
-                <h2>프리미엄 고객의 판매상품 리스트</h2> {/* 고객정보가 primium인 post db에서 가져와야함 */}
-                <PostSlide /> {/* 가져와서 여기다 넘겨줘 */}
+                <h2>프리미엄 고객의 판매상품 리스트</h2>
+                <PostSlide />
             </div>
 
             <div className='PostListContainerTitle'>
@@ -70,8 +70,8 @@ function PostList() {
             }
 
             <div className='PostListContainerTitle'>
-                <h2>추천 랜덤상품 리스트</h2> {/* 랜덤상품 db에서 가져와야함 */}
-                <PostSlide />  {/* 가져와서 여기다 넘겨줘 */}
+                <h2>추천 랜덤상품 리스트</h2>
+                <PostSlide />
             </div>
 
         </div>

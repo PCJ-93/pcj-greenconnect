@@ -59,6 +59,7 @@ function Post() {
                     </div>
                 ) : (
                     <div className="posts-grid" style={{width:'1000px'}}>
+                        <div style={{ padding:'5px',borderRadius:'5px', textAlign:'center', width:'200px', border:'1px solid gray', cursor:'pointer', margin:'10px 10px'}} onClick={()=>{navigate("/writePost")}}>판매글 작성 하러 가기</div>
                         {posts.map((post) => (
                             <div className="post-card" key={post.postId} onClick={()=>(navigate("/postDetail/"+post.postId))}>
                                 <div className="post-title">{post.postTitle}</div>
